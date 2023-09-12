@@ -1,3 +1,5 @@
-import math
+a = [(2,3),(5,4)]
+b = (5,4)
 
-print(math.sin(math.radians(math.pi/2)))
+if b in a :
+    print(True)
