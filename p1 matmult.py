@@ -1,5 +1,5 @@
 import math
-import matplotlib
+from matplotlib import pyplot as plt
 começo = 0
 i = começo
 fim = 2*math.pi
@@ -42,10 +42,11 @@ for j in lista_pontos:
 set = set(tuple(row) for row in lista_pontos) # por equanto não funciona pois perde-se a ordem dos pontos, mas em teoria isso deixa os pontos unicos na lista de coordenadas.
 coordenadas_autointerseção_prontas = list(set)
 auto_intersecao = len(coordenadas_autointerseção_prontas)
-x_plot = lista_pontos[:,0]
-y_plot = lista_pontos[:,1]
-matplotlib.plot(x_plot,y_plot)
-matplotlib.show()
+x_plot = lista_pontos[:][0]
+y_plot = lista_pontos[:][1]
+print(x_plot)
+#plt.plot(y_plot,x_plot)
+#plt.show()
             
 
 #print('ACABOU')
