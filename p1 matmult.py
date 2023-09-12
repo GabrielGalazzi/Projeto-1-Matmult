@@ -1,5 +1,8 @@
-import math
+import math 
 from matplotlib import pyplot as plt
+import sympy as sp
+import numpy as np
+
 começo = 0
 i = começo
 fim = 2*math.pi
@@ -42,11 +45,19 @@ for j in lista_pontos:
 set = set(tuple(row) for row in lista_pontos) # por equanto não funciona pois perde-se a ordem dos pontos, mas em teoria isso deixa os pontos unicos na lista de coordenadas.
 coordenadas_autointerseção_prontas = list(set)
 auto_intersecao = len(coordenadas_autointerseção_prontas)
-x_plot = lista_pontos[:][0]
-y_plot = lista_pontos[:][1]
-print(x_plot)
-#plt.plot(y_plot,x_plot)
-#plt.show()
+
+t = sp.Symbol('t')
+function_x = sp.sympify('8*cos(t) - 5*cos(4*t)')
+function_y = sp.sympify('8*sin(t) - 5*sin(4*t)')
+interval = np.arange(0, 2*math.pi, 0.001)
+
+x_values = [function_x.subs(t, value) for value in interval]
+y_values = [function_y.subs(t, value) for value in interval]
+
+plt.figure(figsize=(10, 10))
+plt.plot(x_values, y_values)
+plt.show()
+
             
 
 #print('ACABOU')
